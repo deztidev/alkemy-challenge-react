@@ -1,12 +1,13 @@
-import { Button } from "react-bootstrap";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Login from "./pages/Login";
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<Button>Primary</Button>
-			</header>
-		</div>
+		<BrowserRouter>
+			<Switch>
+				<Route exact path="/" component={Login} />
+			</Switch>
+		</BrowserRouter>
 	);
 }
 
