@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./assets/styles/index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./sass/index.css";
+import "bootstrap/scss/bootstrap.scss";
 import App from "./App";
 
 ReactDOM.render(

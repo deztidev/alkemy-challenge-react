@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -6,10 +6,18 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 const Login = () => {
 	const history = useHistory();
 	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const token = localStorage.getItem("user");
+		if (token) {
+			history.push("/");
+		}
+	});
+
 	return (
 		<div className="container mt-3">
 			<div className="row justify-content-center">
-				<div className="col col-md-10 col-lg-8">
+				<div className="col col-sm-8 col-md-6 col-lg-5">
 					<Formik
 						initialValues={{
 							email: "",
@@ -33,10 +41,9 @@ const Login = () => {
 								.post("http://challenge-react.alkemy.org/", values)
 								.catch(() => setError("Invalid email or password"));
 							const token = response.data.token;
-							console.log(response);
 							localStorage.setItem("user", JSON.stringify(token));
 							resetForm();
-							history.push("/home");
+							history.push("/");
 						}}
 					>
 						{({ errors }) => (
@@ -50,7 +57,7 @@ const Login = () => {
 										className="form-control"
 										name="email"
 										id="email"
-										placeholder="Email"
+										placeholder="Type your email"
 										required
 									/>
 									<ErrorMessage
@@ -69,7 +76,7 @@ const Login = () => {
 										className="form-control"
 										name="password"
 										id="password"
-										placeholder="Password"
+										placeholder="Type your password"
 										required
 									/>
 									<ErrorMessage
@@ -80,7 +87,7 @@ const Login = () => {
 									/>
 								</div>
 								<button type="submit" className="btn col-12 btn-primary">
-									Enviar
+									Login
 								</button>
 								{error && <p className="text-danger text-center">{error}</p>}
 							</Form>
