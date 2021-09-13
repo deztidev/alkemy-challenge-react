@@ -1,3 +1,9 @@
+.error-message {
+  background-color: rgba(220, 53, 69, 0.9);
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
 body {
   background-color: #2a2d37 !important;
   color: #ffff !important;

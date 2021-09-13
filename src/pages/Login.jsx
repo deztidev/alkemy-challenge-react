@@ -27,11 +27,11 @@ const Login = () => {
 							let errors = {};
 
 							if (!values.email) {
-								errors.email = "Please, enter an email";
+								errors.email = "Please enter an email";
 							}
 
 							if (!values.password) {
-								errors.password = "Please, enter a password";
+								errors.password = "Please enter a password";
 							}
 
 							return errors;
@@ -63,7 +63,7 @@ const Login = () => {
 									<ErrorMessage
 										name="email"
 										component={() => (
-											<div className="text-danger">{errors.email}</div>
+											<div className="error-message">{errors.email}</div>
 										)}
 									/>
 								</div>
@@ -82,14 +82,21 @@ const Login = () => {
 									<ErrorMessage
 										name="password"
 										component={() => (
-											<div className="text-danger">{errors.password}</div>
+											<div className="error-message">{errors.password}</div>
 										)}
 									/>
 								</div>
 								<button type="submit" className="btn col-12 btn-primary">
 									Login
 								</button>
-								{error && <p className="text-danger text-center">{error}</p>}
+								{error && (
+									<div
+										className="error-message mt-1"
+										style={{ padding: "0.375rem 0.75rem" }}
+									>
+										{error}
+									</div>
+								)}
 							</Form>
 						)}
 					</Formik>
