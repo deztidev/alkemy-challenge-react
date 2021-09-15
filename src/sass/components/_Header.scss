@@ -1,0 +1,24 @@
+@use "../abstracts/variables" as *;
+
+.header {
+	background: $background-secondary;
+	height: 13vh;
+	padding: 0 3%;
+	&__title {
+		font-family: $font-logo;
+		color: $green-light;
+		cursor: default;
+		user-select: none;
+		font-style: italic;
+		font-size: calc(2rem + 2vw);
+		font-weight: 900;
+		letter-spacing: calc(1px + 0.3vw);
+		span:nth-child(2) {
+			color: #949ea7;
+		}
+	}
+
+	&__logout {
+		cursor: pointer;
+	}
+}

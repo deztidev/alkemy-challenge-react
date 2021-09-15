@@ -4,8 +4,31 @@
   text-align: center;
 }
 
+.header {
+  background: #2b3a50;
+  height: 13vh;
+  padding: 0 3%;
+}
+.header__title {
+  font-family: "Rubik", sans-serif;
+  color: #5cc6b3;
+  cursor: default;
+  user-select: none;
+  font-style: italic;
+  font-size: calc(2rem + 2vw);
+  font-weight: 900;
+  letter-spacing: calc(1px + 0.3vw);
+}
+.header__title span:nth-child(2) {
+  color: #949ea7;
+}
+.header__logout {
+  cursor: pointer;
+}
+
 body {
-  background-color: #2a2d37 !important;
+  height: 100vh;
+  background-color: #2b3543 !important;
   color: #ffff !important;
 }
 

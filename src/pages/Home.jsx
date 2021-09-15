@@ -1,20 +1,11 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router";
+import React from "react";
+import Header from "../components/Header";
 
 const Home = () => {
-	const history = useHistory();
-
-	useEffect(() => {
-		const token = localStorage.getItem("user");
-		if (!token) {
-			history.push("/login");
-		}
-	});
-
 	return (
-		<div>
+		<Header>
 			<h1>SuperHero</h1>
-		</div>
+		</Header>
 	);
 };
 

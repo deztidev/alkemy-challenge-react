@@ -1,7 +1,9 @@
 @use "./abstracts/variables" as *;
-@use "./pages/login.scss";
+@use "./pages/Login";
+@use "./components/Header";
 
 body {
-	background-color: $color-background !important;
+	height: 100vh;
+	background-color: $background-primary !important;
 	color: $color-white !important;
 }
