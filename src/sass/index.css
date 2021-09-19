@@ -4,6 +4,18 @@
   text-align: center;
 }
 
+.home__button {
+  position: absolute;
+  color: black;
+  margin: 4px 5px;
+  background-color: #ffff;
+  border: none;
+}
+
+.home__input {
+  padding-left: 2.3rem !important;
+}
+
 .header {
   background: #2b3a50;
   height: 13vh;
@@ -30,6 +42,10 @@ body {
   height: 100vh;
   background-color: #2b3543 !important;
   color: #ffff !important;
+}
+
+#root {
+  height: 100vh;
 }
 
 /*# sourceMappingURL=index.css.map */

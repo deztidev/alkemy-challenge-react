@@ -28,7 +28,7 @@ const Header = ({ children }) => {
 				</div>
 				{token && (
 					<Link
-						className="header__logout fs-1 ms-auto text-light"
+						className="header__logout fs-1 ms-auto mb-2 text-light"
 						to="/login"
 						onClick={handleClick}
 					>

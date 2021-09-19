@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+
+.home__button {
+	position: absolute;
+	color: black;
+	margin: 4px 5px;
+	background-color: $color-white;
+	border: none;
+}
+.home__input {
+	padding-left: 2.3rem !important;
+}
