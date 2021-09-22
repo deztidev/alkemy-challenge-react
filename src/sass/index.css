@@ -6,9 +6,9 @@
 
 .home__button {
   position: absolute;
-  color: black;
+  color: #000000;
   margin: 4px 5px;
-  background-color: #ffff;
+  background-color: transparent;
   border: none;
 }
 
@@ -38,6 +38,37 @@
   cursor: pointer;
 }
 
+.card {
+  width: 20rem;
+  height: fit-content;
+  color: #000000;
+}
+.card-header h2 {
+  font-family: fantasy, sans-serif;
+}
+.card-header span {
+  margin-top: 3px;
+  font-size: calc(0.9rem + 0.1vw);
+}
+.card-img-top {
+  height: 40vh;
+  object-fit: cover;
+}
+.card-footer {
+  background-color: #a1bfec7d !important;
+  color: #2b3543;
+  cursor: pointer;
+}
+.card-footer:hover {
+  background-color: #a1bfec !important;
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 576px) {
+  .card {
+    width: calc(23rem + 1vw);
+  }
+}
 body {
   height: 100vh;
   background-color: #2b3543 !important;

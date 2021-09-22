@@ -1,0 +1,33 @@
+@use "../abstracts/variables" as *;
+
+.card {
+	width: 20rem;
+	height: fit-content;
+	color: $color-black;
+	&-header h2 {
+		font-family: $font-fantasy;
+	}
+	&-header span {
+		margin-top: 3px;
+		font-size: calc(0.9rem + 0.1vw);
+	}
+	&-img-top {
+		height: 40vh;
+		object-fit: cover;
+	}
+	&-footer {
+		background-color: #a1bfec7d !important;
+		color: $background-primary;
+		cursor: pointer;
+		&:hover {
+			background-color: #a1bfec !important;
+			text-decoration: underline;
+		}
+	}
+}
+
+@media only screen and (min-width: 576px) {
+	.card {
+		width: calc(23rem + 1vw);
+	}
+}

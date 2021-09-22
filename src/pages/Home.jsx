@@ -8,22 +8,28 @@ const Home = () => {
 	const [searchTerm, setSearchTerm] = useState(null);
 	const [heroes, setHeroes] = useState(null);
 	const [submit, setSubmit] = useState(false);
+	const [loading, setLoading] = useState(null);
 
 	useEffect(() => {
-		console.log("effect");
+		setLoading(true);
 		const fetchData = async () => {
-			console.log("fetch");
-			const accesToken = await 1739918699533852;
-			if (searchTerm && submit) {
-				const response = await axios.get(
-					`https://superheroapi.com/api/${accesToken}/search/${searchTerm}`
+			setLoading(false);
+			const accesToken = 1739918699533852;
+			const response = await axios.get(
+				`https://superheroapi.com/api/${accesToken}/search/${searchTerm}`
+			);
+			setHeroes(response.data.results);
+			setSubmit(false);
+			if (heroes) {
+				console.log(
+					heroes.filter(hero => {
+						return hero.name.length >= 20;
+					})
 				);
-				await setHeroes(response.data.results);
-				// console.log(heroes.map((hero, i) => hero.image.url));
 			}
 		};
-		fetchData();
-	}, [searchTerm, submit]);
+		if (submit) fetchData();
+	}, [submit]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -35,7 +41,7 @@ const Home = () => {
 			<Header />
 			<form className="container" onSubmit={handleSubmit}>
 				<div className="row justify-content-center">
-					<div className="col col-sm-8 col-md-6 col-lg-5">
+					<div className="col-10 col-md-7 col-lg-6 col-xl-5">
 						<button type="submit" className="home__button">
 							<BsSearch />
 						</button>
@@ -50,10 +56,28 @@ const Home = () => {
 					</div>
 				</div>
 			</form>
-			{heroes &&
-				heroes.map((hero, i) => (
-					<Card key={i} image={hero.image.url} name={hero.name} />
-				))}
+			<section className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
+				{!loading ? (
+					<div
+						className="m-auto"
+						style={{ width: "fit-content", transform: "translate(50%, 25vh)" }}
+					>
+						<div className="spinner-border" role="status">
+							<span className="visually-hidden">Loading...</span>
+						</div>
+					</div>
+				) : (
+					heroes &&
+					heroes.map((hero, i) => (
+						<Card
+							key={i}
+							name={hero.name}
+							alignment={hero.biography.alignment}
+							image={hero.image.url}
+						/>
+					))
+				)}
+			</section>
 		</>
 	);
 };

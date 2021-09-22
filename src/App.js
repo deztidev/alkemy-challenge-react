@@ -8,7 +8,6 @@ function App() {
 			<Switch>
 				<Route exact path="/" component={Home} />
 				<Route path="/login" component={Login} />
-				<Route component={() => <div>Not Found</div>} />
 			</Switch>
 		</Router>
 	);

@@ -2,9 +2,9 @@
 
 .home__button {
 	position: absolute;
-	color: black;
+	color: $color-black;
 	margin: 4px 5px;
-	background-color: $color-white;
+	background-color: transparent;
 	border: none;
 }
 .home__input {

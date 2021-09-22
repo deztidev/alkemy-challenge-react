@@ -12,7 +12,7 @@ const Login = () => {
 		<Header>
 			<div className="container">
 				<div className="row justify-content-center">
-					<div className="col col-sm-8 col-md-6 col-lg-5">
+					<div className="col-10 col-md-7 col-lg-6 col-xl-5">
 						<Formik
 							initialValues={{
 								email: "",
