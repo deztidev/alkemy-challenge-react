@@ -58,6 +58,7 @@
   background-color: #a1bfec7d !important;
   color: #2b3543;
   cursor: pointer;
+  border: none;
 }
 .card-footer:hover {
   background-color: #a1bfec !important;

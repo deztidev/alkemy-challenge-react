@@ -5,28 +5,22 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 
 const Home = () => {
-	const [searchTerm, setSearchTerm] = useState(null);
+	const [searchTerm, setSearchTerm] = useState("");
 	const [heroes, setHeroes] = useState(null);
 	const [submit, setSubmit] = useState(false);
 	const [loading, setLoading] = useState(null);
+	const [error, setError] = useState(null);
 
 	useEffect(() => {
 		setLoading(true);
 		const fetchData = async () => {
 			setLoading(false);
 			const accesToken = 1739918699533852;
-			const response = await axios.get(
-				`https://superheroapi.com/api/${accesToken}/search/${searchTerm}`
-			);
-			setHeroes(response.data.results);
+			await axios
+				.get(`https://superheroapi.com/api/${accesToken}/search/${searchTerm}`)
+				.then(response => setHeroes(response.data.results))
+				.catch(error => console.log(error));
 			setSubmit(false);
-			if (heroes) {
-				console.log(
-					heroes.filter(hero => {
-						return hero.name.length >= 20;
-					})
-				);
-			}
 		};
 		if (submit) fetchData();
 	}, [submit]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -49,12 +43,14 @@ const Home = () => {
 							type="text"
 							name="search"
 							className="form-control home__input"
+							value={searchTerm}
 							onChange={e => setSearchTerm(e.target.value)}
 							placeholder="Search a hero"
 							required
 						/>
 					</div>
 				</div>
+				{error && <div className="error-message">{"error"}</div>}
 			</form>
 			<section className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
 				{!loading ? (
@@ -71,6 +67,7 @@ const Home = () => {
 					heroes.map((hero, i) => (
 						<Card
 							key={i}
+							hero={hero}
 							name={hero.name}
 							alignment={hero.biography.alignment}
 							image={hero.image.url}
