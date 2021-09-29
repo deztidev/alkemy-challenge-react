@@ -1,12 +1,32 @@
 @use "../abstracts/variables" as *;
 
-.home__button {
-	position: absolute;
-	color: $color-black;
-	margin: 4px 5px;
-	background-color: transparent;
-	border: none;
-}
-.home__input {
-	padding-left: 2.3rem !important;
+.home {
+	&__btn {
+		color: white !important;
+		background: $background-tertiary !important;
+		display: block !important;
+		margin: 0 auto 2.3rem auto;
+		font-size: 1.2rem !important;
+		&:hover {
+			background: #3f4e6278 !important;
+		}
+		&:focus {
+			box-shadow: 0 0 0 0.25rem #3f4e6278 !important;
+		}
+	}
+	&__label {
+		font-size: 1.3rem;
+		letter-spacing: 0.5px;
+		font-weight: bold;
+	}
+	&__button {
+		position: absolute;
+		color: $color-black;
+		margin: 43px 5px;
+		background-color: transparent;
+		border: none;
+	}
+	&__input {
+		padding-left: 2.3rem !important;
+	}
 }

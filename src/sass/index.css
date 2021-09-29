@@ -1,17 +1,28 @@
-.error-message {
-  background-color: rgba(220, 53, 69, 0.9);
-  border-radius: 0.25rem;
-  text-align: center;
+.home__btn {
+  color: white !important;
+  background: #3f4e62 !important;
+  display: block !important;
+  margin: 0 auto 2.3rem auto;
+  font-size: 1.2rem !important;
 }
-
+.home__btn:hover {
+  background: #3f4e6278 !important;
+}
+.home__btn:focus {
+  box-shadow: 0 0 0 0.25rem #3f4e6278 !important;
+}
+.home__label {
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
 .home__button {
   position: absolute;
   color: #000000;
-  margin: 4px 5px;
+  margin: 43px 5px;
   background-color: transparent;
   border: none;
 }
-
 .home__input {
   padding-left: 2.3rem !important;
 }
@@ -70,6 +81,13 @@
     width: calc(23rem + 1vw);
   }
 }
+.error-message {
+  color: white;
+  background-color: rgba(220, 53, 69, 0.9);
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
 body {
   height: 100vh;
   background-color: #2b3543 !important;

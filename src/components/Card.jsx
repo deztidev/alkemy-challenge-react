@@ -1,35 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addHero } from "../redux/actions";
+import ShowError from "./ShowError";
 
 const Card = ({ hero, name, alignment, image }) => {
 	const dispatch = useDispatch();
 	const team = useSelector(state => state.team);
+	const [error, setError] = useState(null);
 
-	// useEffect(() => {
-	// }, [team]);
+	useEffect(() => {
+		const errorMessage = document.querySelector(".error-message");
+		if (errorMessage) setInterval(() => errorMessage.remove(), 5000);
+	}, [error]);
 
 	const handleClick = () => {
-		console.log(team);
-
 		const countAlignment = alignment => {
 			return team.filter(hero => hero.biography.alignment === alignment);
 		};
 
 		if (team.length >= 6) {
-			console.log("your team is complete. You cannot add more than 6 heroes");
+			setError("Your team is complete. You cannot add more than 6 characters");
 		} else if (team.includes(hero)) {
-			console.log("hero is already on your team");
+			setError("This character is already on your team");
 		} else if (countAlignment(alignment).length >= 3) {
-			console.log(`you cannot add more ${alignment} characters to your team`);
+			setError(`You cannot add more ${alignment} characters to your team`);
 		} else {
 			dispatch(addHero(hero));
-			console.log(countAlignment(alignment).length);
 		}
 	};
 
 	return (
-		<div className="card my-5 mx-5">
+		<div className="card my-5 mx-3">
 			<div className="card-header text-uppercase d-flex">
 				<h2 className="me-2">{name}</h2>
 				{alignment === "good" ? (
@@ -42,6 +43,7 @@ const Card = ({ hero, name, alignment, image }) => {
 			<button className="card-footer fw-bold text-center" onClick={handleClick}>
 				Add to your team
 			</button>
+			{error && <ShowError message={error} />}
 		</div>
 	);
 };

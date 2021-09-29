@@ -1,8 +1,8 @@
 @use "./abstracts/variables" as *;
-@use "./pages/Login";
 @use "./pages/Home";
 @use "./components/Header";
 @use "./components/Card";
+@use "./components/ErrorMessage";
 
 body {
 	height: 100vh;

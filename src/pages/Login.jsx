@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Header from "../components/Header";
+import ShowError from "../components/ShowError";
 
 const Login = () => {
 	const history = useHistory();
@@ -57,9 +58,8 @@ const Login = () => {
 										/>
 										<ErrorMessage
 											name="email"
-											component={() => (
-												<div className="error-message">{errors.email}</div>
-											)}
+											component={ShowError}
+											message={errors.email}
 										/>
 									</div>
 									<div className="mb-3">
@@ -76,21 +76,19 @@ const Login = () => {
 										/>
 										<ErrorMessage
 											name="password"
-											component={() => (
-												<div className="error-message">{errors.password}</div>
-											)}
+											component={ShowError}
+											message={errors.password}
 										/>
 									</div>
 									<button type="submit" className="btn col-12 btn-primary">
 										Login
 									</button>
 									{error && (
-										<div
-											className="error-message mt-1"
-											style={{ padding: "0.375rem 0.75rem" }}
-										>
-											{error}
-										</div>
+										<ShowError
+											className="mt-1"
+											styles={{ padding: "0.375rem 0.75rem" }}
+											message={error}
+										/>
 									)}
 								</Form>
 							)}
