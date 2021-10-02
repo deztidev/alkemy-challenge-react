@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addHero } from "../redux/actions";
 import ShowError from "./ShowError";
 
-const Card = ({ hero, name, alignment, image }) => {
+const Card = ({ hero, name, alignment, image, isAdded }) => {
 	const dispatch = useDispatch();
 	const team = useSelector(state => state.team);
 	const [error, setError] = useState(null);
@@ -40,9 +40,31 @@ const Card = ({ hero, name, alignment, image }) => {
 				)}
 			</div>
 			<img src={image} className="card-img-top" alt={name} />
-			<button className="card-footer fw-bold text-center" onClick={handleClick}>
-				Add to your team
-			</button>
+			{!isAdded ? (
+				<button
+					className="card-footer fw-bold text-center"
+					type="button"
+					onClick={handleClick}
+				>
+					Add to your team
+				</button>
+			) : (
+				<div className="btn-group" role="group" aria-label="Button group">
+					<button
+						type="button"
+						className="card-footer fw-bold text-center"
+						style={{ width: "50%" }}
+					>
+						Details
+					</button>
+					<button
+						className="card-footer fw-bold text-center"
+						style={{ width: "50%", display: "inline-block" }}
+					>
+						Delete
+					</button>
+				</div>
+			)}
 			{error && <ShowError message={error} />}
 		</div>
 	);

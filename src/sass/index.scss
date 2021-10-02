@@ -3,6 +3,7 @@
 @use "./components/Header";
 @use "./components/Card";
 @use "./components/ErrorMessage";
+@use "./abstracts/breakpoints";
 
 body {
 	height: 100vh;

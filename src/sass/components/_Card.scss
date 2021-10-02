@@ -12,23 +12,17 @@
 		font-size: calc(0.9rem + 0.1vw);
 	}
 	&-img-top {
-		height: 40vh;
+		height: 336px;
 		object-fit: cover;
 	}
 	&-footer {
 		background-color: #a1bfec7d !important;
 		color: $background-primary;
 		cursor: pointer;
-		border: none;
+		border: 1px solid #a1bfec7d;
 		&:hover {
 			background-color: #a1bfec !important;
 			text-decoration: underline;
 		}
-	}
-}
-
-@media only screen and (min-width: 576px) {
-	.card {
-		width: calc(23rem + 1vw);
 	}
 }

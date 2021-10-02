@@ -62,25 +62,20 @@
   font-size: calc(0.9rem + 0.1vw);
 }
 .card-img-top {
-  height: 40vh;
+  height: 336px;
   object-fit: cover;
 }
 .card-footer {
   background-color: #a1bfec7d !important;
   color: #2b3543;
   cursor: pointer;
-  border: none;
+  border: 1px solid #a1bfec7d;
 }
 .card-footer:hover {
   background-color: #a1bfec !important;
   text-decoration: underline;
 }
 
-@media only screen and (min-width: 576px) {
-  .card {
-    width: calc(23rem + 1vw);
-  }
-}
 .error-message {
   color: white;
   background-color: rgba(220, 53, 69, 0.9);
@@ -88,6 +83,15 @@
   text-align: center;
 }
 
+@media only screen and (min-width: 576px) {
+  .card {
+    width: calc(23rem + 1vw);
+  }
+
+  .powerstats__badge {
+    font-size: 2vmin !important;
+  }
+}
 body {
   height: 100vh;
   background-color: #2b3543 !important;

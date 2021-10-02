@@ -5,6 +5,8 @@ import { BsSearch } from "react-icons/bs";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import ShowError from "../components/ShowError";
+import Powerstats from "../components/Powerstats";
+import { getAverageHeight, getAverageWeight } from "../components/utils";
 
 const Home = () => {
 	const team = useSelector(state => state.team);
@@ -16,6 +18,7 @@ const Home = () => {
 
 	useEffect(() => {
 		setLoading(true);
+
 		const fetchData = async () => {
 			setLoading(false);
 			const accesToken = 1739918699533852;
@@ -25,8 +28,10 @@ const Home = () => {
 				.catch(() => setError(true));
 			setSubmit(false);
 		};
+		console.log(team);
+
 		if (submit) fetchData();
-	}, [submit]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, [submit, team]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -39,18 +44,12 @@ const Home = () => {
 			{/* {team.length > 0 && <button className="btn home__btn">My Team</button>} */}
 			{team.length > 0 && (
 				<>
-					<h1 className="text-center display-5 fw-bold">My Team</h1>
-					<section className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
-						{team.map((hero, i) => (
-							<Card
-								key={i}
-								hero={hero}
-								name={hero.name}
-								alignment={hero.biography.alignment}
-								image={hero.image.url}
-							/>
-						))}
-					</section>
+					<h1 className="text-center display-4 fw-bold">My Team</h1>
+					{/* <h2 className="text-center">
+						Average Height: {getAverageHeight(team)} cm Average Weight:{" "}
+						{getAverageWeight(team)} kg
+					</h2> */}
+					<Powerstats team={team} />
 				</>
 			)}
 			<form className="container" onSubmit={handleSubmit}>
@@ -80,6 +79,20 @@ const Home = () => {
 					)}
 				</div>
 			</form>
+			{team.length > 0 && (
+				<section className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
+					{team.map((hero, i) => (
+						<Card
+							key={i}
+							hero={hero}
+							name={hero.name}
+							alignment={hero.biography.alignment}
+							image={hero.image.url}
+							isAdded={true}
+						/>
+					))}
+				</section>
+			)}
 			<section className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
 				{!loading ? (
 					<div
