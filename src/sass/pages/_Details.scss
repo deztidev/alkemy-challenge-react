@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as *;
+
+.details {
+	margin: 5vh auto;
+	max-width: 310px;
+	background: #2b3a50 !important;
+	color: $color-white !important;
+	&__image {
+		width: 100%;
+		max-height: 412px;
+	}
+	&__title {
+		font-family: $font-fantasy;
+	}
+	&__text {
+		list-style: none;
+	}
+	&__btn {
+		margin-left: 2rem !important;
+		color: $color-white !important;
+		background: $grey-100 !important;
+		&:hover {
+			background: $grey-400 !important;
+		}
+		&:focus {
+			box-shadow: 0 0 0 0.25rem $grey-400 !important;
+		}
+	}
+}

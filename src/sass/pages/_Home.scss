@@ -2,16 +2,16 @@
 
 .home {
 	&__btn {
-		color: white !important;
-		background: $background-tertiary !important;
+		color: $color-white !important;
+		background: $grey-100 !important;
 		display: block !important;
 		margin: 0 auto 2.3rem auto;
 		font-size: 1.2rem !important;
 		&:hover {
-			background: #3f4e6278 !important;
+			background: $grey-400 !important;
 		}
 		&:focus {
-			box-shadow: 0 0 0 0.25rem #3f4e6278 !important;
+			box-shadow: 0 0 0 0.25rem $grey-400 !important;
 		}
 	}
 	&__label {

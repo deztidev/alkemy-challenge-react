@@ -1,47 +1,63 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 const Details = () => {
+	const history = useHistory();
 	const team = useSelector(state => state.team);
 	const id = window.location.pathname.slice(6, 9);
 	const hero = team.filter(hero => hero.id === id)[0];
 
+	const handleClick = () => history.goBack();
+
 	return (
-		<div className="card mb-3" style={{ maxWidth: "540px" }}>
+		<div className="card details">
 			<div className="row g-0">
-				<div className="col-md-4">
+				<div className="col-md-4 col-lg-3">
 					<img
 						src={hero.image.url}
-						className="img-fluid rounded-start"
-						alt="..."
+						className="img-fluid rounded-start details__image"
+						alt={hero.name}
 					/>
 				</div>
 				<div className="col-md-8">
 					<div className="card-body">
-						<h5 className="card-title">{hero.name}</h5>
-						<ul className="card-text">
+						<h2 className="card-title details__title text-center text-uppercase">
+							{hero.name}
+						</h2>
+						<ul className="card-text details__text">
 							<li>
-								Full Name: <strong>{hero.biography["full-name"]}</strong>
+								<strong>Full Name: </strong>
+								{hero.biography["full-name"]}
 							</li>
 							<li>
-								Aliases: <strong>{hero.biography.aliases}</strong>
+								<strong>Aliases: </strong>
+								{hero.biography.aliases}
 							</li>
 							<li>
-								Work base: <strong>{hero.work.base}</strong>
+								<strong>Work base: </strong>
+								{hero.work.base}
 							</li>
 							<li>
-								Height: <strong>{hero.appearance.height[1]}</strong>
+								<strong>Height: </strong>
+								{hero.appearance.height[1]}
 							</li>
 							<li>
-								Weight: <strong>{hero.appearance.weight[1]}</strong>
+								<strong>Weight: </strong>
+								{hero.appearance.weight[1]}
 							</li>
 							<li>
-								Eye color: <strong>{hero.appearance["eye-color"]}</strong>
+								<strong>Eye color: </strong>
+								{hero.appearance["eye-color"]}
 							</li>
 							<li>
-								Hair color: <strong>{hero.appearance["hair-color"]}</strong>
+								<strong>Hair color: </strong>
+								{hero.appearance["hair-color"]}
 							</li>
 						</ul>
+						<button className="btn details__btn" onClick={handleClick}>
+							Back
+						</button>
 					</div>
 				</div>
 			</div>

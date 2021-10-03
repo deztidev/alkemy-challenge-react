@@ -1,5 +1,5 @@
 .home__btn {
-  color: white !important;
+  color: #ffff !important;
   background: #3f4e62 !important;
   display: block !important;
   margin: 0 auto 2.3rem auto;
@@ -25,6 +25,34 @@
 }
 .home__input {
   padding-left: 2.3rem !important;
+}
+
+.details {
+  margin: 5vh auto;
+  max-width: 310px;
+  background: #2b3a50 !important;
+  color: #ffff !important;
+}
+.details__image {
+  width: 100%;
+  max-height: 412px;
+}
+.details__title {
+  font-family: fantasy, sans-serif;
+}
+.details__text {
+  list-style: none;
+}
+.details__btn {
+  margin-left: 2rem !important;
+  color: #ffff !important;
+  background: #3f4e62 !important;
+}
+.details__btn:hover {
+  background: #3f4e6278 !important;
+}
+.details__btn:focus {
+  box-shadow: 0 0 0 0.25rem #3f4e6278 !important;
 }
 
 .header {
@@ -95,6 +123,30 @@
     font-size: 2vmin !important;
   }
 }
+@media only screen and (min-width: 768px) {
+  .details {
+    margin-top: 10vh;
+    max-width: unset;
+    width: 80%;
+    font-size: 1.2rem;
+    line-height: 26px;
+  }
+  .details__image {
+    height: 100% !important;
+    object-fit: cover;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .details {
+    margin-top: 15vh;
+    width: 60%;
+    font-size: 1.3rem;
+    line-height: 30px;
+  }
+  .details__title {
+    margin-bottom: 15px !important;
+  }
+}
 body {
   height: 100vh;
   background-color: #2b3543 !important;
@@ -102,7 +154,9 @@ body {
 }
 
 #root {
+  position: absolute;
   height: 100vh;
+  width: 100vw;
 }
 
 /*# sourceMappingURL=index.css.map */

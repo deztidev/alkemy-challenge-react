@@ -9,3 +9,29 @@
 		@extend .powerstats__badge;
 	}
 }
+
+@media only screen and (min-width: 768px) {
+	.details {
+		margin-top: 10vh;
+		max-width: unset;
+		width: 80%;
+		font-size: 1.2rem;
+		line-height: 26px;
+		&__image {
+			height: 100% !important;
+			object-fit: cover;
+		}
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.details {
+		margin-top: 15vh;
+		width: 60%;
+		font-size: 1.3rem;
+		line-height: 30px;
+		&__title {
+			margin-bottom: 15px !important;
+		}
+	}
+}

@@ -1,5 +1,6 @@
 @use "./abstracts/variables" as *;
 @use "./pages/Home";
+@use "./pages/Details";
 @use "./components/Header";
 @use "./components/Card";
 @use "./components/ErrorMessage";
@@ -7,9 +8,11 @@
 
 body {
 	height: 100vh;
-	background-color: $background-primary !important;
+	background-color: $grey-200 !important;
 	color: $color-white !important;
 }
 #root {
+	position: absolute;
 	height: 100vh;
+	width: 100vw;
 }

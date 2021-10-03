@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 
 .header {
-	background: $background-secondary;
+	background: $grey-300;
 	height: 13vh;
 	padding: 0 3%;
 	&__title {

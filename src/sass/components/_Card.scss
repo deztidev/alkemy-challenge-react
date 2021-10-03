@@ -16,15 +16,15 @@
 		object-fit: cover;
 	}
 	&-footer {
-		background-color: #a1bfec7d !important;
-		color: $background-primary;
+		background-color: $blue-200 !important;
+		color: $grey-200;
 		cursor: pointer;
-		border: 1px solid #a1bfec7d;
+		border: 1px solid $blue-200;
 		&:hover {
-			background-color: #a1bfec !important;
+			background-color: $blue-100 !important;
 		}
 		&:focus {
-			background-color: #a1bfec !important;
+			background-color: $blue-100 !important;
 			text-decoration: underline;
 		}
 	}
