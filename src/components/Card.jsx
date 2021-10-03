@@ -95,7 +95,10 @@ const Card = ({ hero, name, alignment, image, isAdded }) => {
 						</div>
 					))}
 					<div className="btn-group" role="group" aria-label="Button group">
-						<Link to={`/hero/${hero.id}`} style={{ display: "contents" }}>
+						<Link
+							to={`/hero/${hero.id}`}
+							style={{ display: "contents", textDecoration: "none" }}
+						>
 							<button
 								type="button"
 								className="card-footer fw-bold text-center"
