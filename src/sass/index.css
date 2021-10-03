@@ -73,6 +73,9 @@
 }
 .card-footer:hover {
   background-color: #a1bfec !important;
+}
+.card-footer:focus {
+  background-color: #a1bfec !important;
   text-decoration: underline;
 }
 
@@ -88,7 +91,7 @@
     width: calc(23rem + 1vw);
   }
 
-  .powerstats__badge {
+  .powerstats__badge, .powerstats__average {
     font-size: 2vmin !important;
   }
 }

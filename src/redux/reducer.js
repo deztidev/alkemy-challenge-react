@@ -10,7 +10,7 @@ function reducer(state = initialState, action) {
 			return { ...state, team: [...state.team, action.payload] };
 		case REMOVE_HERO:
 			return {
-				team: [...state.team.filter(hero => hero.id !== action.payload)],
+				team: [...state.team.filter(hero => hero !== action.payload)],
 			};
 		default:
 			return state;

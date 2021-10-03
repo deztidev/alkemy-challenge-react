@@ -5,4 +5,7 @@
 	.powerstats__badge {
 		font-size: 2vmin !important;
 	}
+	.powerstats__average {
+		@extend .powerstats__badge;
+	}
 }

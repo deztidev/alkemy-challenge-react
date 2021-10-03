@@ -6,7 +6,6 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import ShowError from "../components/ShowError";
 import Powerstats from "../components/Powerstats";
-import { getAverageHeight, getAverageWeight } from "../components/utils";
 
 const Home = () => {
 	const team = useSelector(state => state.team);
@@ -28,29 +27,33 @@ const Home = () => {
 				.catch(() => setError(true));
 			setSubmit(false);
 		};
-		console.log(team);
 
 		if (submit) fetchData();
 	}, [submit, team]); // eslint-disable-line react-hooks/exhaustive-deps
 
-	const handleSubmit = async e => {
+	const handleSubmit = e => {
 		e.preventDefault();
 		setSubmit(true);
+	};
+
+	const handleClick = () => {
+		setHeroes(null);
 	};
 
 	return (
 		<>
 			<Header />
-			{/* {team.length > 0 && <button className="btn home__btn">My Team</button>} */}
-			{team.length > 0 && (
+			{team.length > 0 && !heroes ? (
 				<>
 					<h1 className="text-center display-4 fw-bold">My Team</h1>
-					{/* <h2 className="text-center">
-						Average Height: {getAverageHeight(team)} cm Average Weight:{" "}
-						{getAverageWeight(team)} kg
-					</h2> */}
 					<Powerstats team={team} />
 				</>
+			) : (
+				team.length > 0 && (
+					<button className="btn home__btn" onClick={handleClick}>
+						My Team
+					</button>
+				)
 			)}
 			<form className="container" onSubmit={handleSubmit}>
 				<div className="my-0 mx-auto col-10 col-md-7 col-lg-6 col-xl-5">
@@ -71,15 +74,15 @@ const Home = () => {
 							required
 						/>
 					</div>
-					{heroes === undefined && (
+					{heroes === undefined ? (
 						<ShowError message={"Character with given name not found"} />
-					)}
-					{heroes !== undefined && error && (
-						<ShowError message={"Error fetching API"} />
+					) : (
+						heroes !== undefined &&
+						error && <ShowError message={"Error fetching API"} />
 					)}
 				</div>
 			</form>
-			{team.length > 0 && (
+			{team.length > 0 && !heroes && (
 				<section className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
 					{team.map((hero, i) => (
 						<Card
@@ -94,7 +97,7 @@ const Home = () => {
 				</section>
 			)}
 			<section className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
-				{!loading ? (
+				{!loading && heroes ? (
 					<div
 						className="m-auto"
 						style={{ width: "fit-content", transform: "translate(50%, 25vh)" }}
@@ -105,9 +108,9 @@ const Home = () => {
 					</div>
 				) : (
 					heroes &&
-					heroes.map((hero, i) => (
+					heroes.map(hero => (
 						<Card
-							key={i}
+							key={hero.id}
 							hero={hero}
 							name={hero.name}
 							alignment={hero.biography.alignment}

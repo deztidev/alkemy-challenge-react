@@ -22,6 +22,9 @@
 		border: 1px solid #a1bfec7d;
 		&:hover {
 			background-color: #a1bfec !important;
+		}
+		&:focus {
+			background-color: #a1bfec !important;
 			text-decoration: underline;
 		}
 	}

@@ -1,5 +1,5 @@
 import React from "react";
-import { getPowerstats } from "./utils";
+import { getAverageHeight, getAverageWeight, getPowerstats } from "./utils";
 
 const ProgressBar = ({ team }) => {
 	const powerstats = getPowerstats(team);
@@ -7,13 +7,13 @@ const ProgressBar = ({ team }) => {
 	const powerstatsValues = Object.values(powerstats);
 	const powerstatsArray = [];
 	let powerstatsObject = {
-		value: "",
 		name: "",
+		value: "",
 	};
 	for (let i = 0; i < powerstatsValues.length; i++) {
 		powerstatsObject = {
-			value: Math.floor(powerstatsValues[i] / 6),
 			name: powerstatsNames[i],
+			value: Math.floor(powerstatsValues[i] / 6),
 		};
 		powerstatsArray.push(powerstatsObject);
 	}
@@ -30,6 +30,10 @@ const ProgressBar = ({ team }) => {
 					<span className="powerstats__badge badge bg-primary rounded-0 text-capitalize">
 						{powerstatsOrdered[0].name}
 					</span>
+				</div>
+				<div className="powerstats__average text-center mb-2">
+					Average Height: <strong>{getAverageHeight(team)} cm</strong> - Average
+					Weight: <strong>{getAverageWeight(team)} kg</strong>
 				</div>
 				{powerstatsOrdered.map((powerstat, key) => (
 					<div
