@@ -2,7 +2,7 @@
   "name": "alkemy-challenge",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://deztidev.github.io/alkemy-challenge-react",
+  "homepage": "https://deztidev.github.io/alkemy-challenge-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -10,9 +10,7 @@
     "axios": "^0.21.4",
     "bootstrap": "^5.1.0",
     "formik": "^2.2.9",
-    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.0.0-beta.6",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.5",
@@ -49,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "sass": "^1.39.0"
   }
 }
