@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 const Header = ({ children }) => {
 	const history = useHistory();
-	const token = localStorage.getItem("user");
+	const token =
+		typeof window !== "undefined" ? localStorage.getItem("user") : null;
 
 	const handleClick = () => {
 		localStorage.removeItem("user");
