@@ -83,6 +83,13 @@ const Login = () => {
 									<button type="submit" className="btn col-12 btn-primary">
 										Login
 									</button>
+									<button type="button"  className="btn col-12 mt-2 btn-primary" 
+									onClick={() => {
+										localStorage.setItem('user', 'guest');
+										history.push('/');
+									}}>
+										Login as guest
+									</button>
 									{error && (
 										<ShowError
 											className="mt-1"
