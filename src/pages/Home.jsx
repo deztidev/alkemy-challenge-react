@@ -22,7 +22,7 @@ const Home = () => {
 			setLoading(false);
 			const accesToken = 1739918699533852;
 			await axios
-				.get(`https://superheroapi.com/api/${accesToken}/search/${searchTerm}`)
+				.get(`https://superheroapi.com/api.php/${accesToken}/search/${searchTerm}`)
 				.then(response => setHeroes(response.data.results))
 				.catch(() => setError(true));
 			setSubmit(false);
